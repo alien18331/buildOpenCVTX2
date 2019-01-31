@@ -1,3 +1,34 @@
+# Alien   
+$ sudo apt-get purge libopencv*   
+$ sudo apt autoremove   
+$ sudo apt-get update   
+$ sudo apt-get dist-upgrade   
+$ sudo apt-get install --only-upgrade g++-5 cpp-5 gcc-5   
+   
+$ gcc --version   
+$ g++ --version   
+   
+# If it’s wrong, it can be changed by following steps.   
+   
+$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 \
+                         --slave /usr/bin/g++ g++ /usr/bin/g++-5    
+sudo update-alternatives --config gcc  
+   
+# Run scripts   
+$ mkdir -p ~/src   
+$ cd ~/src   
+$ git clone https://github.com/Alien18331/buildOpenCVTX2   
+$ cd buildOpenCVTX2   
+$ vim buildOpenCV.sh   
+...   
+OPENCV_VERSION=3.4.0   
+...   
+$ sudo bash ./buildOpenCV.sh -s ~/src   
+   
+# Then check.   
+$ python3 -c 'import cv2; print(cv2.__file__)'   
+/usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-aarch64-linux-gnu.so   
+   
 # buildOpenCVTX2
 Build and install OpenCV for the NVIDIA Jetson TX2
 
